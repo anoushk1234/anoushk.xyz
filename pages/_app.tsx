@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <NextUIProvider theme={theme}>
       <Component {...pageProps} />
-      <Cursor />
+      {/* <Cursor /> */}
     </NextUIProvider>
   );
 }

@@ -1,15 +1,40 @@
 import { Button, Container, Row, Text, Col, Link } from "@nextui-org/react";
+import { time } from "console";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TextLoop } from "react-text-loop-next";
 import Cursor from "../components/cursor";
 // import "../styles/button.css";
 const Home: NextPage = () => {
-  const messages = ["☀️"];
-  // const { messages } = props;
+  const messages = ["☀️", "🌙"];
+  const [showgm, setShowGm] = useState(false);
+  const [gmcount, setGmCount] = useState(16);
+  const date = new Date();
+  const [hour, setHour] = useState(0);
+  function delay(delayInms: any) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(2);
+      }, delayInms);
+    });
+  }
+  useEffect(() => {
+    setHour(date.getHours());
+  }, [date]);
+  useEffect(() => {
+    async function showGm() {
+      if (showgm) {
+        await delay(500);
+        setGmCount(gmcount + 6);
+        setShowGm(false);
+      }
+    }
+    showGm();
+  }, [showgm]);
+  // // const { messages } = props;
   // Default to the first message passed
 
   return (
@@ -44,7 +69,7 @@ const Home: NextPage = () => {
           }}
           weight="bold"
         >
-          {messages[0]}
+          {hour >= 19 ? messages[1] : messages[0]}
         </Text>
       </motion.div>
       <Text
@@ -67,7 +92,10 @@ const Home: NextPage = () => {
             color: "$gray600",
           }}
         >
-          sevnteen. serial builder.
+          sevnteen. serial builder. building{" "}
+          <Link css={{ color: "$gray600" }} href="https://metapasshq.xyz">
+            <u> metapass</u>
+          </Link>
         </Text>
         <Text
           css={{
@@ -131,7 +159,7 @@ const Home: NextPage = () => {
           thoughts
         </Link>
       </Text>
-      <Text
+      {/* <Text
         css={{
           // color: "WhiteSmoke",
           letterSpacing: "$wide",
@@ -139,10 +167,8 @@ const Home: NextPage = () => {
           color: "$gray600",
         }}
       >
-        <Link css={{ color: "$gray600" }} href="https://metapasshq.xyz">
-          metapass
-        </Link>
-      </Text>
+       
+      </Text> */}
       <Text
         css={{
           // color: "WhiteSmoke",
@@ -157,7 +183,7 @@ const Home: NextPage = () => {
           }}
           href="https://github.com/anoushk1234"
         >
-          the cool shit
+          builds
         </Link>
       </Text>
       <Text
@@ -194,6 +220,29 @@ const Home: NextPage = () => {
           about
         </Link>
       </Text>
+      {showgm && (
+        <motion.div
+          //create a wobble animation
+          initial={{ opacity: 1, x: 0, y: 0 }}
+          animate={{
+            translateX: [0, -10, 10, -10, 0],
+            translateY: [0, -10, 10, -10, 0],
+          }}
+          transition={{
+            duration: 0.5,
+          }}
+        >
+          <Text
+            size={gmcount}
+            css={{
+              position: "absolute",
+              left: "$36",
+            }}
+          >
+            Gm!
+          </Text>
+        </motion.div>
+      )}
       <Button
         css={{
           marginLeft: "$10",
@@ -203,6 +252,7 @@ const Home: NextPage = () => {
         shadow
         color="primary"
         auto
+        onClick={() => setShowGm(true)}
       >
         Gm 🌈
       </Button>
