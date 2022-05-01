@@ -11,7 +11,16 @@ import Cursor from "../components/cursor";
 const Home: NextPage = () => {
   const messages = ["☀️", "🌙"];
   const [showgm, setShowGm] = useState(false);
-  const [gmcount, setGmCount] = useState(16);
+  const [gmcount, setGmCount] = useState(1);
+  const gmType = [
+    "gm",
+    "gm!",
+    "GM!",
+    "Mega GM!",
+    "Giga GM!",
+    "ULtra GM!",
+    "Giga ULtra PRO MAX ETREME GM! ",
+  ];
   const date = new Date();
   const [hour, setHour] = useState(0);
   function delay(delayInms: any) {
@@ -28,8 +37,12 @@ const Home: NextPage = () => {
     async function showGm() {
       if (showgm) {
         await delay(500);
-        setGmCount(gmcount + 6);
+        setGmCount(gmcount + 1);
+
         setShowGm(false);
+      }
+      if (gmcount > gmType.length) {
+        setGmCount(1);
       }
     }
     showGm();
@@ -233,13 +246,13 @@ const Home: NextPage = () => {
           }}
         >
           <Text
-            size={gmcount}
+            size={gmcount * 6 < 14 ? 14 : gmcount * 6}
             css={{
               position: "absolute",
               left: "$36",
             }}
           >
-            Gm!
+            {gmType[gmcount]}
           </Text>
         </motion.div>
       )}
