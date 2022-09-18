@@ -1,6 +1,7 @@
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
-import puppeteer from "puppeteer";
+const chrome = require("chrome-aws-lambda");
+import puppeteer from "puppeteer-core";
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -44,10 +45,23 @@ export default async function handler(
     "--use-mock-keychain",
   ];
 
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: minimal_args,
-  });
+  const browser = await puppeteer.launch(
+    process.env.NEXT_PUBLIC_ENV === "dev"
+      ? {
+          args: minimal_args,
+          executablePath:
+            process.platform === "win32"
+              ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+              : process.platform === "linux"
+              ? "/usr/bin/google-chrome"
+              : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        }
+      : {
+          args: chrome.args,
+          executablePath: await chrome.executablePath,
+          headless: chrome.headless,
+        }
+  );
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 720 });
   const website_url = site;
