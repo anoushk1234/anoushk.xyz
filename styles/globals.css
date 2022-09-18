@@ -14,3 +14,55 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.circle {
+	background-color: #10c97a;
+	border-radius: 50%;
+	animation: pulse-red 3.5s infinite;
+	height: 15px;
+	width: 15px;
+}
+
+
+@keyframes pulse-red {
+	0% {
+		transform: scale(0.9);
+		box-shadow: 0 0 0 0 rgba(16, 203, 122, 1);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 15px rgba(16, 203, 122, 0);
+	}
+	
+	100% {
+		transform: scale(0.9);
+		box-shadow: 0 0 0 0 rgba(16, 203, 122, 0);
+	}
+}
+
+.circle-red {
+	background-color: rgb(255, 103, 79,0.9);
+	border-radius: 50%;
+	animation: pulse-red-circle 3.5s infinite;
+	height: 15px;
+	width: 15px;
+}
+
+
+@keyframes pulse-red-circle {
+	0% {
+		transform: scale(0.9);
+		box-shadow: 0 0 0 0 rgba(255, 103, 79, 0.8);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 15px rgba(16, 203, 122, 0);
+	}
+	
+	100% {
+		transform: scale(0.9);
+		box-shadow: 0 0 0 0 rgba(16, 203, 122, 0);
+	}
+}

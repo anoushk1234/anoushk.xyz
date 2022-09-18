@@ -58,7 +58,7 @@ export default async function handler(
   });
   const pic = await page.screenshot({
     path: "ss.webp",
-    fullPage: true,
+    fullPage: false,
   });
   await browser.close();
 

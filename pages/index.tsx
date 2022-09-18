@@ -194,9 +194,9 @@ const Home: NextPage = () => {
           css={{
             color: "$gray600",
           }}
-          href="https://github.com/anoushk1234"
+          href="/projects"
         >
-          github
+          projects
         </Link>
       </Text>
       <Text
@@ -211,11 +211,12 @@ const Home: NextPage = () => {
           css={{
             color: "$gray600",
           }}
-          href="/projects"
+          href="https://github.com/anoushk1234"
         >
-          projects
+          github
         </Link>
       </Text>
+
       <Text
         css={{
           // color: "WhiteSmoke",
