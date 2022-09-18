@@ -188,7 +188,7 @@ const ProjectPage: NextPage = ({ fallback }: any) => {
                     width={435}
                     height={272}
                     maxDelay={10000}
-                    src="http://www.deelay.me/20000/https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true"
+                    src="http://www.deelay.me/6000/https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true"
                     //   alt="Default Image"
                   />
                 )}
