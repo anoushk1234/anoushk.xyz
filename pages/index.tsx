@@ -139,9 +139,9 @@ const Home: NextPage = () => {
           css={{
             color: "LightGoldenRodYellow",
           }}
-          href="mailto:hey@anoushk.xyz"
+          href="mailto:kharangateanoushk04@gmail.com"
         >
-          hey@anoushk.xyz
+          kharangateanoushk04@gmail.com
         </Link>
       </Text>
 
@@ -196,7 +196,24 @@ const Home: NextPage = () => {
           }}
           href="https://github.com/anoushk1234"
         >
-          builds
+          github
+        </Link>
+      </Text>
+      <Text
+        css={{
+          // color: "WhiteSmoke",
+          letterSpacing: "$wide",
+          fontWeight: "$medium",
+          color: "$gray600",
+        }}
+      >
+        <Link
+          css={{
+            color: "$gray600",
+          }}
+          href="/projects"
+        >
+          projects
         </Link>
       </Text>
       <Text

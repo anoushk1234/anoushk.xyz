@@ -9,6 +9,7 @@ import Document, {
 import { CssBaseline } from "@nextui-org/react";
 import { ReactElement } from "react";
 import Cursor from "../components/cursor";
+import React from "react";
 
 class MyDocument extends Document {
   static async getInitialProps(
@@ -17,7 +18,7 @@ class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     return {
       ...initialProps,
-      styles: initialProps.styles,
+      styles: [<>{initialProps.styles}</>],
     };
   }
 
