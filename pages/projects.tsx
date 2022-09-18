@@ -1,7 +1,7 @@
 import { Col, Row, Text } from "@nextui-org/react";
 import axios from "axios";
 import { NextPage } from "next";
-import { DocumentContext } from "next/document";
+
 import useSWR from "swr";
 const API = "https://api.airtable.com/v0/appgrx0CkGStO1umk/Table%201";
 const fetcher = (url: string) =>
@@ -34,7 +34,7 @@ const Projects: NextPage = ({ fallback }: any) => {
   );
 };
 export default Projects;
-export async function getServerSideProps(context: DocumentContext) {
+export async function getServerSideProps(context: any) {
   const recs = await fetcher(API);
   //   if (error) return "An error has occurred.";
   //   if (!data) return "Loading...";
