@@ -44,37 +44,47 @@ export default async function handler(
     "--use-gl=swiftshader",
     "--use-mock-keychain",
   ];
-
-  const browser = await puppeteer.launch(
-    process.env.NEXT_PUBLIC_ENV === "dev"
-      ? {
-          args: minimal_args,
-          executablePath:
-            process.platform === "win32"
-              ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
-              : process.platform === "linux"
-              ? "/usr/bin/google-chrome"
-              : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-        }
-      : {
-          args: chrome.args,
-          executablePath: await chrome.executablePath,
-          headless: chrome.headless,
-        }
-  );
-  const page = await browser.newPage();
-  await page.setViewport({ width: 1280, height: 720 });
-  const website_url = site;
-
-  // Open URL in current page
-  await page.goto(website_url || "https://www.gitsol.xyz", {
-    waitUntil: "networkidle0",
-  });
-  const pic = await page.screenshot({
-    path: "ss.webp",
-    fullPage: false,
-  });
-  await browser.close();
-
-  res.status(200).json({ pic: Buffer.from(pic).toString("base64") });
+  try {
+    const browser = await puppeteer.launch(
+      process.env.NEXT_PUBLIC_ENV === "dev"
+        ? {
+            args: minimal_args,
+            executablePath:
+              process.platform === "win32"
+                ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+                : process.platform === "linux"
+                ? "/usr/bin/google-chrome"
+                : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+          }
+        : {
+            args: chrome.args,
+            executablePath: await chrome.executablePath,
+            headless: chrome.headless,
+          }
+    );
+    console.log("browser launched");
+    const page = await browser.newPage();
+    console.log("page created");
+    await page.setViewport({ width: 1280, height: 720 });
+    console.log("viewport set");
+    const website_url = site;
+    console.log("website url", website_url);
+    // Open URL in current page
+    await page.goto(website_url || "https://www.gitsol.xyz", {
+      waitUntil: "networkidle0",
+    });
+    console.log("page loaded");
+    const pic = await page.screenshot({
+      path: "ss.webp",
+      fullPage: false,
+    });
+    console.log("screenshot taken");
+    await browser.close();
+    console.log("browser closed");
+    res.status(200).json({ pic: Buffer.from(pic).toString("base64") });
+  } catch (e) {
+    let error = e as Error;
+    console.log(error, "error");
+    res.status(500).json({ error: error.message });
+  }
 }
