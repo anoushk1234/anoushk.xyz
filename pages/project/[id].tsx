@@ -174,7 +174,7 @@ const ProjectPage: NextPage = ({ fallback }: any) => {
                       borderRadius: "0px",
                       objectFit: "fill",
                     }}
-                    src={`data:image/png;base64,${ss}`}
+                    src={`${ss}`}
                     width={485}
                     height={290}
                     maxDelay={10000}

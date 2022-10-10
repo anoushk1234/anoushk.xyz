@@ -17,12 +17,12 @@ const fetcher = (url: string) =>
 const Projects: NextPage = ({ fallback }: any) => {
   const { data, error } = useSWR(API);
 
-  // console.log(fallback[API]);
+  console.log(fallback[API], "fallback");
   const [projects, setProjects] = useState(
     data || fallback[API]?.data?.records
   );
   if (error) return <div>failed to load</div>;
-  console.log(projects);
+  console.log(projects, "projects");
   return (
     <Col>
       <Row>

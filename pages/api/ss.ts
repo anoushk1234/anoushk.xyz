@@ -8,7 +8,7 @@ export default async function handler(
   const { site } = req.body;
 
   try {
-    const { data } = await axios.post("https://screenshot.up.railway.app/ss", {
+    const { data } = await axios.post("https://screenshot.up.railway.app/", {
       site,
     });
     res.status(200).json({ pic: data.pic });

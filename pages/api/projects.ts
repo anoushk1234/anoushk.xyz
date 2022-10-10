@@ -6,7 +6,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log("enter");
+  console.log("hello");
   try {
     const { data } = await axios.get(
       "https://api.airtable.com/v0/appgrx0CkGStO1umk/Table%201",
@@ -16,7 +16,7 @@ export default async function handler(
         },
       }
     );
-    console.log(data);
+    console.log(data, "data");
     res.status(200).json({ data });
   } catch (error) {
     console.log((error as Error).message);
