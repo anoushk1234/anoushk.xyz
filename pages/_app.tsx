@@ -3,15 +3,16 @@ import { AppProps } from "next/app";
 import Cursor from "../components/cursor";
 import { theme } from "../styles/theme";
 import "../styles/globals.css";
+import Script from "next/script";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <script
+      <Script
         async
         defer
-        data-website-id="1e1b1955-80e7-4008-93d3-45035031588b"
+        data-website-id={process.env.NEXT_PUBLIC_UMAMI_ID}
         src="https://analytics.metapasshq.xyz/umami.js"
-      ></script>
+      />
       <NextUIProvider theme={theme}>
         <Component {...pageProps} />
         {/* <Cursor /> */}
