@@ -110,6 +110,7 @@ export async function getServerSideProps(context: any) {
     //   if (!data) return "Loading...";
 
     await redisClient.set("projects", JSON.stringify(recs));
+    await redisClient.expire("projects", 3600);
     return {
       props: {
         fallback: {
