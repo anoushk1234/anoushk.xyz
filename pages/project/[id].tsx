@@ -32,9 +32,10 @@ const fetcher = (url: string) =>
     .then((r) => r.data)
     .catch((e) => e.message);
 export async function getServerSideProps(context: any) {
-  redisClient.connect().then(() => {
-    console.log("redis connected");
-  });
+  !redisClient.isOpen &&
+    redisClient.connect().then(() => {
+      console.log("redis connected", redisClient.isOpen);
+    });
   const { id } = context.query;
   console.log(id, "id");
   const data = await redisClient.get(id);

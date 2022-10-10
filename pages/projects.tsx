@@ -89,9 +89,10 @@ const Projects: NextPage = ({ fallback }: any) => {
 };
 export default Projects;
 export async function getServerSideProps(context: any) {
-  redisClient.connect().then(() => {
-    console.log("redis connected");
-  });
+  !redisClient.isOpen &&
+    redisClient.connect().then(() => {
+      console.log("redis connected", redisClient.isOpen);
+    });
   const data = await redisClient.get("projects");
   if (data) {
     console.log("data from redis");
