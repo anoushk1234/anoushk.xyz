@@ -2,13 +2,19 @@ import { Col, Link, Loading, Row, Text } from "@nextui-org/react";
 import axios from "axios";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
-
+import { createClient } from "redis";
 import useSWR from "swr";
 const base =
   process.env.NEXT_PUBLIC_ENV === "prod"
     ? "https://anoushk.xyz"
     : "http://localhost:3000";
 const API = base + "/api/projects";
+const redisClient = createClient({
+  username: "default",
+  password: process.env.REDISPASSWORD,
+  url: process.env.REDIS_URL,
+});
+
 const fetcher = (url: string) =>
   axios
     .get(url)
@@ -83,15 +89,32 @@ const Projects: NextPage = ({ fallback }: any) => {
 };
 export default Projects;
 export async function getServerSideProps(context: any) {
-  const recs = await fetcher(API);
-  //   if (error) return "An error has occurred.";
-  //   if (!data) return "Loading...";
+  redisClient.connect().then(() => {
+    console.log("redis connected");
+  });
+  const data = await redisClient.get("projects");
+  if (data) {
+    console.log("data from redis");
+    return {
+      props: {
+        fallback: {
+          [API]: JSON.parse(data),
+        },
+      }, // will be passed to the page component as props
+    };
+  } else {
+    console.log("data from api");
+    const recs = await fetcher(API);
+    //   if (error) return "An error has occurred.";
+    //   if (!data) return "Loading...";
 
-  return {
-    props: {
-      fallback: {
-        [API]: recs,
-      },
-    }, // will be passed to the page component as props
-  };
+    await redisClient.set("projects", JSON.stringify(recs));
+    return {
+      props: {
+        fallback: {
+          [API]: recs,
+        },
+      }, // will be passed to the page component as props
+    };
+  }
 }

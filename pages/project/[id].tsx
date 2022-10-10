@@ -15,7 +15,12 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { fs } from "nextjs-components";
 import useSWR from "swr";
-
+import { createClient } from "redis";
+const redisClient = createClient({
+  username: "default",
+  password: process.env.REDISPASSWORD,
+  url: process.env.REDIS_URL,
+});
 const base =
   process.env.NEXT_PUBLIC_ENV === "prod"
     ? "https://anoushk.xyz"
@@ -27,16 +32,34 @@ const fetcher = (url: string) =>
     .then((r) => r.data)
     .catch((e) => e.message);
 export async function getServerSideProps(context: any) {
-  //   console.log(API + context.query.id, "API");
-  const recs = await fetcher(API + "/" + context.query.id);
-  //   console.log(recs, "reco");
-  return {
-    props: {
-      fallback: {
-        [API]: recs,
+  redisClient.connect().then(() => {
+    console.log("redis connected");
+  });
+  const { id } = context.query;
+  console.log(id, "id");
+  const data = await redisClient.get(id);
+  if (data) {
+    console.log("data from redis");
+    return {
+      props: {
+        fallback: {
+          [API]: JSON.parse(data),
+        },
       },
-    }, // will be passed to the page component as props
-  };
+    };
+  } else {
+    console.log("data from api");
+    const recs = await fetcher(API + "/" + context.query.id);
+    //   console.log(recs, "reco");
+    await redisClient.set(id, JSON.stringify(recs));
+    return {
+      props: {
+        fallback: {
+          [API]: recs,
+        },
+      }, // will be passed to the page component as props
+    };
+  }
 }
 const ProjectPage: NextPage = ({ fallback }: any) => {
   const router = useRouter();
