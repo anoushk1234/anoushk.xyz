@@ -129,14 +129,17 @@ const About: NextPage = () => {
           <Text
             css={{
               // color: "WhiteSmoke",
-
+              marginTop: "$12",
               letterSpacing: "$wide",
               fontWeight: "$medium",
               color: "$gray600",
               whiteSpace: "pre-line",
             }}
           >
-            building in web3 and crypto{" "}
+            building{" "}
+            <Link href="https://metapasshq.xyz">
+              <u>metapass</u>
+            </Link>
           </Text>
         </li>
       </ul>
