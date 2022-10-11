@@ -69,7 +69,7 @@ const Projects: NextPage = ({ fallback }: any) => {
                     color: "$primary",
                   },
                 }}
-                href={"/project/" + record.id}
+                href={"/projects/" + record.id}
               >
                 {record.fields.Name}
               </Link>
