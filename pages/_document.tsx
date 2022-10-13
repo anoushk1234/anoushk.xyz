@@ -9,6 +9,7 @@ import Document, {
 import { CssBaseline } from "@nextui-org/react";
 import { ReactElement } from "react";
 import Cursor from "../components/cursor";
+import Script from "next/script";
 
 class MyDocument extends Document {
   static async getInitialProps(
@@ -27,8 +28,8 @@ class MyDocument extends Document {
         <Head>{CssBaseline.flush()}</Head>
         <body>
           <Main />
-
           <NextScript />
+          <Script src="/theme.js" strategy="beforeInteractive" />
         </body>
       </Html>
     );
