@@ -39,6 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         data-website-id={process.env.NEXT_PUBLIC_UMAMI_ID}
         src="https://analytics.metapasshq.xyz/umami.js"
       />
+      <Script src="/theme.js" strategy="beforeInteractive" />
       <NextUIProvider theme={theme}>
         <Component {...pageProps} />
         {/* <Cursor /> */}
