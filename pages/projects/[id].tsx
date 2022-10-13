@@ -189,7 +189,7 @@ const ProjectPage: NextPage = ({ fallback }: any) => {
               }}
               src="https://www.gitsol.xyz/"
             /> */}
-                {ss.length > 0 ? (
+                {
                   <Image
                     css={{
                       "&:hover": {
@@ -198,24 +198,13 @@ const ProjectPage: NextPage = ({ fallback }: any) => {
                       borderRadius: "0px",
                       objectFit: "fill",
                     }}
-                    src={`${ss}`}
+                    src={ss}
                     width={485}
                     height={290}
+                    showSkeleton
                     maxDelay={10000}
                   ></Image>
-                ) : (
-                  <Image
-                    style={{
-                      borderRadius: "0px",
-                    }}
-                    showSkeleton
-                    width={435}
-                    height={272}
-                    maxDelay={10000}
-                    src="http://www.deelay.me/7000/https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true"
-                    //   alt="Default Image"
-                  />
-                )}
+                }
               </fs.Fieldset>
             </button>
             <Col
