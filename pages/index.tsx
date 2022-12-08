@@ -105,7 +105,7 @@ const Home: NextPage = () => {
             color: "$gray600",
           }}
         >
-          sevnteen. serial builder. building{" "}
+          eighteen. serial builder. building{" "}
           <Link css={{ color: "$gray600" }} href="https://metapasshq.xyz">
             <u> metapass</u>
           </Link>
