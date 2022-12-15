@@ -34,7 +34,7 @@ export const WalletContextProvider: FC<any> = ({ children }) => {
   //       ? (process.env.NEXT_PUBLIC_ALCHEMY as string)
   //       : (process.env.NEXT_PUBLIC_ALCHEMY as string);
   const network = process.env.NEXT_PUBLIC_ALCHEMY;
-  console.log(network);
+  // console.log(network);
   const endpoint = useMemo(() => network, [network]);
   const wallets = useMemo(
     () => [
