@@ -59,7 +59,7 @@ const Article: NextPage = () => {
       </Row>
 
       <Divider />
-      <ArticleComponent id={id as string} />
+      {/* <ArticleComponent id={id as string} /> */}
     </Col>
   );
 };

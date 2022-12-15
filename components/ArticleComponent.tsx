@@ -130,7 +130,7 @@ const ArticleComponent = (article: ArticleComponentProps) => {
       </Col>
     </Col>
   ) : (
-    <Spinner />
+    <div>loading...</div>
   );
 };
 
