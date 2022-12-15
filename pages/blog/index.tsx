@@ -77,7 +77,7 @@ const Blog = () => {
         <PostComponent
           id="solana-diet-client"
           title="Solana Diet Client"
-          description="Why diet clients can reduce RPC dependency"
+          description="you only need one"
           date="DEC 1, 2021"
           duration="1 min read"
         />

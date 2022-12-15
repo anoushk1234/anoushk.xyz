@@ -20,11 +20,10 @@ const ArticleComponent = (article: ArticleComponentProps) => {
   const [articleData, setArticleData] = React.useState<ArticleData | null>({
     id: "solana-diet-client",
     title: "Solana Diet Client",
-    description: "Why diet clients can reduce RPC dependency",
+    description: "you only need one",
     date: "DEC 1, 2021",
     duration: "1 min read",
-    image:
-      "https://cdn.pastemagazine.com/www/articles/2019/12/05/rick_morty_pinball_main.JPG",
+    image: "https://i.imgur.com/hHw644t.png",
     body: `They’re a different version of light clients that make some very interesting tradeoffs. With light clients, you have an honest full node raising a fraud proof. Fraud proofs require state commitments periodically (every block would be ideal, but this can impact performance. So lets say once every fixed number of blocks). Diet clients avoid fraud proofs by letting the full node just say **“I'm going to burn 10000 SOL if this block is accepted. I know it’s fraudulent”** - this essentially serves as an SOS message to the light clients. If they accept the block, then they’re accepting a transaction where a full node is basically just burning their own currency.
 
     So that serves as an SOS signal, but what do the light nodes do now? This is where the tradeoff comes in - they can coordinate via social consensus, or launch a full node temporarily to sync the state and verify the fraudulent transaction just as a full node would. This sounds hard, but there are some solutions here - cloud computing lets you launch a machine powerful enough to be a solana validator at 2-3$ an hour. Solana also takes incremental snapshots every minute or so. Syncing the full snapshot, the most recently incremental snapshot (hashes of which are in the chain and can be verified). This can all be done within an hour and the machine can be shut down. Naturally, this is tradeoff, but can be done with 0 additional cost (since state commitments are needed)`,
@@ -122,6 +121,7 @@ const ArticleComponent = (article: ArticleComponentProps) => {
           css={{
             fontSize: "1.2rem",
             marginBottom: "2rem",
+            marginTop: "2rem",
             maxWidth: "80%",
           }}
         >
