@@ -9,7 +9,7 @@ import {
 } from "@nextui-org/react";
 import React from "react";
 import { ConnectWallet } from "../../components/ct";
-import ModalComponent from "../../components/modal";
+// import ModalComponent from "../../components/modal";
 import PostComponent from "../../components/PostComponent";
 import SmallPostComponent from "../../components/SmallPostComponent";
 
