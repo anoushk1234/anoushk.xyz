@@ -1,12 +1,24 @@
 import { createTheme, NextUIProvider } from "@nextui-org/react";
 import { AppProps } from "next/app";
 import Cursor from "../components/cursor";
+
+import dynamic from "next/dynamic";
 import { theme } from "../styles/theme";
 import "../styles/globals.css";
 import Script from "next/script";
 import Head from "next/head";
-import { ContextProvider } from "../components/provider";
+// import { ContextProvider } from "../components/provider";
+const ContextProvider = dynamic<{ children: ReactNode }>(
+  () =>
+    import("../components/provider").then(
+      ({ ContextProvider }) => ContextProvider
+    ),
+  {
+    ssr: false,
+  }
+);
 import { Toaster } from "react-hot-toast";
+import { ReactNode } from "react";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
