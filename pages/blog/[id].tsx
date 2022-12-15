@@ -26,7 +26,7 @@ const Article: NextPage = () => {
         >
           {"Blog."}
         </Text>
-        <Button
+        {/* <Button
           style={{
             margin: "1rem",
             backgroundColor: "white",
@@ -48,14 +48,14 @@ const Article: NextPage = () => {
             />
           }
         >
-          {/* <ConnectWallet setAddress={setAddress} noToast={false}>
+          <ConnectWallet setAddress={setAddress} noToast={false}>
             {(address.length > 0 &&
               address.substring(0, 5) +
                 "..." +
                 address.substring(35, address.length - 5)) ||
               "Connect Wallet"}
-          </ConnectWallet> */}
-        </Button>
+          </ConnectWallet>
+        </Button> */}
       </Row>
 
       <Divider />
