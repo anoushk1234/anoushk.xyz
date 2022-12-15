@@ -88,7 +88,7 @@ const ArticleComponent = (article: ArticleComponentProps) => {
           {articleData.title}
         </Text>
         <Text
-          color="$gray200"
+          color="$gray300"
           css={{
             fontSize: "1.8rem",
             // marginLeft: "0.2rem",

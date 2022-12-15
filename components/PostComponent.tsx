@@ -50,7 +50,7 @@ const PostComponent = (post: PostComponentProps) => {
           {post.title}
         </Text>
         <Text
-          color="$gray900"
+          color="$gray300"
           css={{
             fontSize: "1.8rem",
             // marginLeft: "0.2rem",
