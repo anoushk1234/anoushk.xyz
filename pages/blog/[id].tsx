@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import React from "react";
 import ArticleComponent from "../../components/ArticleComponent";
-import { ConnectWallet } from "../../components/ct";
+// import { ConnectWallet } from "../../components/ct";
 
 const Article: NextPage = () => {
   const router = useRouter();
@@ -48,13 +48,13 @@ const Article: NextPage = () => {
             />
           }
         >
-          <ConnectWallet setAddress={setAddress} noToast={false}>
+          {/* <ConnectWallet setAddress={setAddress} noToast={false}>
             {(address.length > 0 &&
               address.substring(0, 5) +
                 "..." +
                 address.substring(35, address.length - 5)) ||
               "Connect Wallet"}
-          </ConnectWallet>
+          </ConnectWallet> */}
         </Button>
       </Row>
 
