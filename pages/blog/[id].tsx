@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import React from "react";
 import ArticleComponent from "../../components/ArticleComponent";
-// import { ConnectWallet } from "../../components/ct";
+import { ConnectWallet } from "../../components/ct";
 
 const Article: NextPage = () => {
   const router = useRouter();
@@ -26,7 +26,7 @@ const Article: NextPage = () => {
         >
           {"Blog."}
         </Text>
-        {/* <Button
+        <Button
           style={{
             margin: "1rem",
             backgroundColor: "white",
@@ -55,11 +55,11 @@ const Article: NextPage = () => {
                 address.substring(35, address.length - 5)) ||
               "Connect Wallet"}
           </ConnectWallet>
-        </Button> */}
+        </Button>
       </Row>
 
       <Divider />
-      {/* <ArticleComponent id={id as string} /> */}
+      <ArticleComponent id={id as string} />
     </Col>
   );
 };

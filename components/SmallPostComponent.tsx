@@ -47,7 +47,7 @@ const SmallPostComponent = (post: SmallPostComponentProps) => {
           {post.title}
         </Text>
         <Text
-          color="$gray200"
+          color="$gray900"
           css={{
             fontSize: "1.8rem",
             // marginLeft: "0.2rem",
