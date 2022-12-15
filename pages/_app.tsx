@@ -5,6 +5,8 @@ import { theme } from "../styles/theme";
 import "../styles/globals.css";
 import Script from "next/script";
 import Head from "next/head";
+import { ContextProvider } from "../components/provider";
+import { Toaster } from "react-hot-toast";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -41,7 +43,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
       <Script src="/theme.js" strategy="beforeInteractive" />
       <NextUIProvider theme={theme}>
-        <Component {...pageProps} />
+        <ContextProvider>
+          <Toaster />
+          <Component {...pageProps} />
+        </ContextProvider>
         {/* <Cursor /> */}
       </NextUIProvider>
     </>
