@@ -40,13 +40,13 @@ export const WalletContextProvider: FC<any> = ({ children }) => {
   const wallets = useMemo(
     () => [
       new PhantomWalletAdapter(),
-      new SlopeWalletAdapter(),
-      new SolflareWalletAdapter(),
-      new LedgerWalletAdapter(),
-      new SolletWalletAdapter(),
-      new SolletExtensionWalletAdapter(),
+      // new SlopeWalletAdapter(),
       new GlowWalletAdapter(),
       new BackpackWalletAdapter(),
+      new SolflareWalletAdapter(),
+      new LedgerWalletAdapter(),
+      // new SolletWalletAdapter(),
+      // new SolletExtensionWalletAdapter(),
     ],
     [network]
   );
