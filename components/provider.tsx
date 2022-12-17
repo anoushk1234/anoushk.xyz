@@ -14,6 +14,7 @@ import {
   SolletExtensionWalletAdapter,
   SolletWalletAdapter,
   GlowWalletAdapter,
+  BackpackWalletAdapter,
 } from "@solana/wallet-adapter-wallets";
 import {
   WalletModalProvider,
@@ -45,6 +46,7 @@ export const WalletContextProvider: FC<any> = ({ children }) => {
       new SolletWalletAdapter(),
       new SolletExtensionWalletAdapter(),
       new GlowWalletAdapter(),
+      new BackpackWalletAdapter(),
     ],
     [network]
   );
