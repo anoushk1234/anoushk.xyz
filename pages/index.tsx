@@ -169,7 +169,7 @@ const Home: NextPage = () => {
           }}
           href="https://twitter.com/anoushk77"
         >
-          thoughts
+          twitter
         </Link>
       </Text>
       {/* <Text
