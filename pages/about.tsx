@@ -94,7 +94,7 @@ const About: NextPage = () => {
           whiteSpace: "pre-line",
         }}
       >
-        {`I won my first hackathon at 16 and \n started my first company at 17.\n blew up my school in 9th grade science experiment,\n we tried to make an engine run on hydrogen lol \n\n\n these days im hacking around with solana and polygon,\n i like to learn about backend tech too like django🐍,elastic search, bloom filters and docker🐳`}
+        {`I won my first hackathon at 16 and \n started my first company at 17.\n blew up my school in 9th grade science experiment,\n we tried to make an engine run on hydrogen lol \n\n\n these days im hacking around with solana and polygon,\n i like to learn about systems engineering, distributed systems and a lot of other sophisticated things related to Computer Science. Currently I'm building a diet client for Solana after diving through the solana validator`}
       </Text>
       <Text
         size={24}
@@ -189,7 +189,7 @@ const About: NextPage = () => {
               whiteSpace: "pre-line",
             }}
           >
-            Contributed to metaplex and solana cookbook{" "}
+            Contributed to metaplex, solana cookbook, coral, anchor, switchboard, jito solana and more{" "}
           </Text>
         </li>
         <li
@@ -207,7 +207,7 @@ const About: NextPage = () => {
               whiteSpace: "pre-line",
             }}
           >
-            Won first place at Polygon blockchain hackathon
+            2x Hackathon Winner (Solana x Filecoin 2022, Polygon Buidl It 2021)
           </Text>
         </li>
       </ul>
