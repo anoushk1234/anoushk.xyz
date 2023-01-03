@@ -88,13 +88,41 @@ const About: NextPage = () => {
       <Text
         css={{
           // color: "WhiteSmoke",
+          marginRight: "50px",
           letterSpacing: "$wide",
           fontWeight: "$medium",
           color: "$gray600",
           whiteSpace: "pre-line",
         }}
       >
-        {`I won my first hackathon at 16 and \n started my first company at 17.\n blew up my school in 9th grade science experiment,\n we tried to make an engine run on hydrogen lol \n\n\n these days im hacking around with solana and polygon,\n i like to learn about systems engineering, distributed systems and a lot of other sophisticated things related to Computer Science. Currently I'm building a diet client for Solana after diving through the solana validator`}
+        {`I won my first hackathon at 16 and \n started my first company at 17.\n blew up my school in 9th grade science experiment,\n we tried to make an engine run on hydrogen lol \n built things with raspis/arduinos like auto gas leak detectors that turn off the stove \n\n\n `}
+      </Text>
+      <Text
+        css={{
+          // color: "WhiteSmoke",
+
+          letterSpacing: "$wide",
+          fontWeight: "$medium",
+          color: "$gray600",
+          whiteSpace: "pre-line",
+          wordBreak: "break-word",
+          marginRight: "50px",
+        }}
+      >
+        {` these days im hacking around with solana's validator infra and protocols,\n\n i like to work on hard problems and uncharted territories(unknown unknowns), innovation lies in this quadrant.\n\n hence i like to read about systems engineering, distributed systems, networking, algos and data structures, cryptography etc\n\n currently I'm building a diet client for Solana that can validate transactions without trusting super majority and without the need to run a full node.`}
+      </Text>
+      <Text
+        css={{
+          // color: "WhiteSmoke",
+
+          letterSpacing: "$wide",
+          fontWeight: "$medium",
+          color: "$gray600",
+          whiteSpace: "pre-line",
+        }}
+      >
+        i don't consider any language better, they're all different tools in the
+        toolbelt but rust 🦀 is my personal favorite, don't tell typescript 😛
       </Text>
       <Text
         size={24}
@@ -137,8 +165,8 @@ const About: NextPage = () => {
             }}
           >
             building{" "}
-            <Link href="https://metapasshq.xyz">
-              <u>metapass</u>
+            <Link href="https://github.com/solana-foundation/solana-improvement-documents/pull/10">
+              <u>diet-client</u>
             </Link>
           </Text>
         </li>
@@ -189,9 +217,30 @@ const About: NextPage = () => {
               whiteSpace: "pre-line",
             }}
           >
-            Contributed to metaplex, solana cookbook, coral, anchor, switchboard, jito solana and more{" "}
+            Contributed to metaplex, solana cookbook, coral, anchor,
+            switchboard, jito solana and more{" "}
           </Text>
         </li>
+        <li
+          style={{
+            display: "list-item",
+          }}
+        >
+          <Text
+            css={{
+              // color: "WhiteSmoke",
+
+              letterSpacing: "$wide",
+              fontWeight: "$medium",
+              color: "$gray600",
+              whiteSpace: "pre-line",
+            }}
+          >
+            Built and exited my startup app.metapasshq.xyz - we had more than
+            2.5k users, 10k+ USD in revenue, 14 events
+          </Text>
+        </li>
+
         <li
           style={{
             display: "list-item",
