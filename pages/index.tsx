@@ -234,6 +234,23 @@ const Home: NextPage = () => {
           blog
         </Link>
       </Text>
+       <Text
+        css={{
+          // color: "WhiteSmoke",
+          letterSpacing: "$wide",
+          fontWeight: "$medium",
+          color: "$gray600",
+        }}
+      >
+        <Link
+          css={{
+            color: "$gray600",
+          }}
+          href="https://github.com/anoushk1234/reading-list"
+        >
+          reading list
+        </Link>
+      </Text>
       <Text
         css={{
           // color: "WhiteSmoke",
