@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
-const withTM = require("next-transpile-modules")(["nextjs-components"]);
+const withTM = require("next-transpile-modules")([
+  "nextjs-components",
+  "@solana/wallet-adapter-base",
+  "@solana/wallet-adapter-react",
+  "@solana/wallet-adapter-react-ui",
+  "@solana/wallet-adapter-wallets",
+]);
 const nextConfig = {
   reactStrictMode: true,
   typescript: {
